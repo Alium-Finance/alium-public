@@ -1,8 +1,8 @@
-const nft1 = '/images/QmNZuNGKW9oqx6dfVwV6X9jCCdUrGZfcZD4jBYXZxfMJjj'
-const nft2 = '/images/QmNZuNGKW9oqx6dfVwV6X9jCCdUrGZfcZD4jBYXZxfMJjj'
-const nft3 = '/images/QmNZuNGKW9oqx6dfVwV6X9jCCdUrGZfcZD4jBYXZxfMJjj'
-const nft4 = '/images/QmNZuNGKW9oqx6dfVwV6X9jCCdUrGZfcZD4jBYXZxfMJjj'
-const nft5 = '/images/QmNZuNGKW9oqx6dfVwV6X9jCCdUrGZfcZD4jBYXZxfMJjj'
+const nft1 = '/images/rare-altum.gif'
+const nft2 = '/images/rare-altum.gif'
+const nft3 = '/images/rare-altum.gif'
+const nft4 = '/images/ncommon-regno.gif'
+const nft5 = '/images/common-necesse.gif'
 
 export type CardType = {
   id: number
@@ -17,7 +17,7 @@ export type CardType = {
 const cardList = [
   {
     img: nft1,
-    headline: 'Legendary',
+    headline: 'Legendary Illustris',
     cards: '175',
     cost: '5 000 BUSD',
     tokens: '300 000 ALM',
@@ -25,7 +25,7 @@ const cardList = [
   },
   {
     img: nft2,
-    headline: 'Epic',
+    headline: 'Epic Castus',
     cards: '350',
     cost: '2 500 BUSD',
     tokens: '875 000 ALM',
@@ -33,7 +33,7 @@ const cardList = [
   },
   {
     img: nft3,
-    headline: 'Rare',
+    headline: 'Rare Altum',
     cards: '500',
     cost: '1 000 BUSD',
     tokens: '500 000 ALM',
@@ -41,7 +41,7 @@ const cardList = [
   },
   {
     img: nft4,
-    headline: 'Uncommon',
+    headline: 'Uncommon Regno',
     cards: '1 250',
     cost: '300 BUSD',
     tokens: '375 000 ALM',
@@ -49,7 +49,7 @@ const cardList = [
   },
   {
     img: nft5,
-    headline: 'Common',
+    headline: 'Common Necesse',
     cards: '2 500',
     cost: '150 BUSD',
     tokens: '375 000 ALM',

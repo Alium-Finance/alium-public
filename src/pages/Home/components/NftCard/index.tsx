@@ -25,6 +25,8 @@ const NFTWrapper = styled.button`
   }
 
   & .nft-preview {
+    background-color: hsl(230, 37%, 97%);
+    border-radius: 6px;
     width: 100%;
   }
 
@@ -68,7 +70,7 @@ const NFTWrapper = styled.button`
 
 const ContentHolder = styled.div`
   padding: 0 0 10px 6px;
-  width: 150px;
+  width: 152px;
   @media screen and (min-width: 1025px) {
     width: auto;
     padding: 0;
