@@ -12,7 +12,6 @@ import {
   Select,
 } from '@material-ui/core'
 import axios from 'axios'
-import { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Modal from 'components/Modal'
@@ -33,13 +32,11 @@ import { useTransactionAdder } from 'state/transactions/hooks'
 import { useCurrencyBalance } from 'state/wallet/hooks'
 import styled from 'styled-components'
 import AppBody from '../AppBody'
-import { Dots } from '../Pool/styleds'
 import NftCard from './components/NftCard'
 import { StyledFormControl, StyledTextField } from './components/Styled/Inputs'
 import cardList from './constants/cards'
 import currencies from './constants/currencies'
 import emails from './constants/membersList'
-import whitelist from './constants/whitelist'
 import bgIMG from './images/background-img.svg'
 import max from './images/max-button.svg'
 
@@ -161,14 +158,14 @@ const Home = () => {
 
   const { t } = useTranslation()
 
-  useEffect(() => {
-    if (account) {
-      setHideModalOpen(false)
-      if (whitelist.indexOf(account) === -1) {
-        if (!isOpenModal) setOpenModal(true)
-      } else if (isOpenModal) setOpenModal(false)
-    } else if (!isHideModalOpen) setHideModalOpen(true)
-  }, [account, isHideModalOpen, isOpenModal])
+  // useEffect(() => {
+  //   if (account) {
+  //     setHideModalOpen(false)
+  //     if (whitelist.indexOf(account) === -1) {
+  //       if (!isOpenModal) setOpenModal(true)
+  //     } else if (isOpenModal) setOpenModal(false)
+  //   } else if (!isHideModalOpen) setHideModalOpen(true)
+  // }, [account, isHideModalOpen, isOpenModal])
 
   const nftContract = useNFTPrivateContract()
   const collectibleContract = useCollectibleContract()
@@ -502,23 +499,19 @@ const Home = () => {
               </Select>
               <FormHelperText>{t('chooseStablecoin')}</FormHelperText>
             </StyledFormControl>
-            {/* <ButtonWrap>
+            <ButtonWrap>
               {!account ? (
                 <ConnectWalletButton fullwidth />
               ) : (
                 <AutoColumn gap="md">
                   <RowBetween>
-                        <Button
-                          onClick={handleBuy}
-                        >
-                          Buy {values.count} cards
-                    </Button>
-                    </RowBetween>
+                    <Button onClick={handleBuy}>Buy {values.count} cards</Button>
+                  </RowBetween>
                 </AutoColumn>
               )}
-            </ButtonWrap> */}
+            </ButtonWrap>
 
-            <ButtonWrap>
+            {/* <ButtonWrap>
               {!account ? (
                 <ConnectWalletButton fullwidth />
               ) : (
@@ -550,7 +543,7 @@ const Home = () => {
                   )}
                 </AutoColumn>
               )}
-            </ButtonWrap>
+            </ButtonWrap> */}
           </GridForm>
         </AppBody>
       </CardWrapper>

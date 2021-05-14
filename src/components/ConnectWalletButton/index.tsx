@@ -1,27 +1,13 @@
 // import { Button, ButtonProps, ConnectorId, useWalletModal } from '@alium-official/uikit'
 import { Button, ButtonProps, useWalletModal } from '@alium-official/uikit'
-import { useWeb3React } from '@web3-react/core'
-import { injected, walletconnect } from 'connectors'
+import useAuth from 'hooks/useAuth'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 const UnlockButton: React.FC<ButtonProps> = (props) => {
-  const { account, activate, deactivate } = useWeb3React()
-
-  const handleLogin = (connectorId: any) => {
-    if (connectorId === 'walletconnect') {
-      return activate(walletconnect)
-    }
-    return activate(injected)
-  }
   const { t } = useTranslation()
-  const { onPresentConnectModal } = useWalletModal(
-    handleLogin,
-    deactivate,
-    account as string,
-    t('modalTitle'),
-    t('modalFooter')
-  )
+  const { login, logout } = useAuth()
+  const { onPresentConnectModal } = useWalletModal(login, logout)
 
   return (
     <Button onClick={onPresentConnectModal} {...props}>

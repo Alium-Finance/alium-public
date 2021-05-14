@@ -27,9 +27,9 @@ import Web3ReactManager from '../components/Web3ReactManager'
 import { allLanguages, EN } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
+import useEagerConnect from '../hooks/useEagerConnect'
 import Home from './Home'
 import Header from './Home/components/Header'
-
 // import Menu from '../components/Menu'
 // import Migrate from './Migrate'
 
@@ -116,6 +116,8 @@ export default function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLanguage])
+
+  useEagerConnect()
 
   return (
     <Suspense fallback={null}>
