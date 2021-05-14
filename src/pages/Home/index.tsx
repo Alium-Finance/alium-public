@@ -42,6 +42,7 @@ import max from './images/max-button.svg'
 
 const ContentHolder = styled.div`
   position: relative;
+
   & .content-background {
     position: absolute;
     right: 0;
@@ -113,10 +114,12 @@ const StyledHeading = styled(Heading)`
 const ButtonWrap = styled.div`
   width: 100%;
   max-width: initial;
+
   & button {
     width: 100%;
     margin-top: 4px;
   }
+
   & div {
     margin-top: 0;
   }
@@ -153,11 +156,13 @@ const NotifyMembers = (hash, count, card, currency) => {
 
 const Home = () => {
   const [isOpenModal, setOpenModal] = useState(false)
-  const [isHideModalOpen, setHideModalOpen] = useState(false) // todo <Modal isOpen={false}
+  const [isHideModalOpen, setHideModalOpen] = useState(false)
   const { account, chainId } = useActiveWeb3React()
 
   const { t } = useTranslation()
 
+  // TODO: PUBLIC ROUND / off whitelist
+  // TODO: TEMP / off modal "Unlock Wallet"
   // useEffect(() => {
   //   if (account) {
   //     setHideModalOpen(false)
@@ -234,7 +239,8 @@ const Home = () => {
 
     setValues((oldValues) => ({
       ...oldValues,
-      [name]: value,
+      // [name]: value, // TODO: PUBLIC ROUND / max 1
+      [name]: 1,
     }))
   }
 
@@ -246,7 +252,8 @@ const Home = () => {
   const handleClickMax = () => {
     setValues((oldValues) => ({
       ...oldValues,
-      count: maxAmountOfCards,
+      // count: maxAmountOfCards, // TODO: PUBLIC ROUND / max 1
+      count: 1,
     }))
   }
 
@@ -405,7 +412,7 @@ const Home = () => {
             </Text>
           </Flex>
         </Modal>
-        <Modal isOpen={false} onDismiss={handleClose}>
+        <Modal isOpen={isHideModalOpen} onDismiss={handleClose}>
           <Flex flexDirection="column" style={{ margin: '0 auto' }}>
             <Text
               mb="30px"
