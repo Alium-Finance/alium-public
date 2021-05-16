@@ -1,3 +1,4 @@
+import { externalLinks } from '@alium-official/uikit'
 import React from 'react'
 import styled from 'styled-components'
 import first from '../../../images/ghub.svg'
@@ -8,19 +9,19 @@ import third from '../../../images/twi.svg'
 const header = [
   {
     img: first,
-    link: 'https://github.com/Aliumswap',
+    link: externalLinks.github,
   },
   {
     img: second,
-    link: 'https://t.me/aliumswap_official',
+    link: externalLinks.telegram,
   },
   {
     img: third,
-    link: 'https://twitter.com/AliumSwap',
+    link: externalLinks.twitter,
   },
   {
     img: fourth,
-    link: 'https://medium.com/@aliumswap',
+    link: externalLinks.medium,
   },
 ].map((item, i) => ({ ...item, id: i }))
 
@@ -29,6 +30,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
+
   & .header-links-item {
     cursor: pointer;
     outline: none;
@@ -37,6 +39,7 @@ const Wrapper = styled.div`
     padding: 0 4px;
     height: 40px;
     width: 40px;
+
     & .header-links-item__img {
       width: 100%;
       height: 100%;
@@ -52,6 +55,7 @@ const Wrapper = styled.div`
       width: 30px;
       height: 30px;
     }
+
     .header-links-item__img {
       min-height: auto;
       max-height: auto;
