@@ -1,6 +1,6 @@
 import { Button } from '@alium-official/uikit'
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
+import { useWeb3React } from '@web3-react/core'
 import { darken, lighten } from 'polished'
 import React, { useMemo } from 'react'
 import { Activity } from 'react-feather'
@@ -50,7 +50,7 @@ const Web3StatusGeneric = styled(Button)`
 const Web3StatusError = styled(Web3StatusGeneric)`
   background-color: ${({ theme }) => theme.colors.failure};
   border: 1px solid ${({ theme }) => theme.colors.failure};
-  #FFFFFFfont-weight: 500;
+  font-weight: 500;
   :hover,
   :focus {
     background-color: ${({ theme }) => darken(0.1, theme.colors.failure)};
@@ -202,14 +202,15 @@ function Web3StatusInner() {
       </Web3StatusConnected>
     )
   }
-  if (error) {
-    return (
-      <Web3StatusError onClick={toggleWalletModal}>
-        <NetworkIcon />
-        <Text>{error instanceof UnsupportedChainIdError ? t('wrongNetworkDetected') : t('error')}</Text>
-      </Web3StatusError>
-    )
-  }
+  // if (error) {
+  //   return (s
+  //     // @ts-ignore
+  //     <Web3StatusError onClick={toggleWalletModal}>
+  //       <NetworkIcon />
+  //       <Text>{error instanceof UnsupportedChainIdError ? t('wrongNetworkDetected') : t('error')}</Text>
+  //     </Web3StatusError>
+  //   )
+  // }
   return (
     <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
       <Text>{t('Connect to a wallet')}</Text>

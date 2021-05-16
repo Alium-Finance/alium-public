@@ -175,7 +175,10 @@ const Home = () => {
   const nftContract = useNFTPrivateContract()
   const collectibleContract = useCollectibleContract()
 
-  const [values, setValues] = useState<any>({
+  const [values, setValues] = useState<{
+    currency: string
+    count: number
+  }>({
     currency: currencies.stablecoins[0],
     count: 1,
   })
@@ -218,30 +221,23 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    setValues((oldValues) => ({
-      ...oldValues,
-      count: 1,
-    }))
+    setValues(({ currency }) => ({ currency, count: 1 }))
   }, [activeCard])
 
-  const handleChange = (event) => {
-    const { name } = event.target
-    let { value } = event.target
+  // Quantity Currency
 
-    if (name === 'count' && (value.indexOf('-') !== -1 || !parseInt(value) || !/^[0-9]+$/.test(value)) && value !== '')
-      return
+  const handleChangeQuantity = ({ target }) => {
+    let { value } = target
+    if ((value.indexOf('-') !== -1 || !parseInt(value) || !/^[0-9]+$/.test(value)) && value !== '') return
+    if (value > maxAmountOfCards) value = maxAmountOfCards
 
-    if (name === 'count') {
-      if (value > maxAmountOfCards) {
-        value = maxAmountOfCards
-      }
-    }
+    // setValues(({ currency }) => ({ currency, count: value })) // TODO: PUBLIC ROUND / max 1
+    setValues(({ currency }) => ({ currency, count: 1 }))
+  }
 
-    setValues((oldValues) => ({
-      ...oldValues,
-      // [name]: value, // TODO: PUBLIC ROUND / max 1
-      [name]: 1,
-    }))
+  const handleChangeCurrency = ({ target }) => {
+    const { value } = target
+    setValues(({ count }) => ({ currency: value, count }))
   }
 
   const handleClickCard = (id: string) => {
@@ -304,6 +300,7 @@ const Home = () => {
       })
       .catch((err) => console.error(err))
   }
+
   const [approval, approveCallback] = useApproveCallback(
     new TokenAmount(
       new WrappedTokenInfo(currencies.match[values.currency], []),
@@ -482,7 +479,7 @@ const Home = () => {
                     </InputAdornment>
                   ),
                 }}
-                onChange={handleChange}
+                onChange={handleChangeQuantity}
                 variant="outlined"
               />
               {!!maxAmountOfCards && <FormHelperText>{t('maxAmount', { count: maxAmountOfCards })}</FormHelperText>}
@@ -493,9 +490,9 @@ const Home = () => {
               </InputLabel>
               <Select
                 value={values.currency}
-                onChange={handleChange}
+                onChange={handleChangeCurrency}
                 name="currency"
-                disabled={!maxAmountOfCards}
+                // disabled={!maxAmountOfCards} // TODO: TEMP
                 input={<OutlinedInput style={{ background: 'none' }} notched labelWidth={labelWidth} />}
               >
                 {currencies.stablecoins.map((item) => (
