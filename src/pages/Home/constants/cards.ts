@@ -1,5 +1,5 @@
-const nft1 = '/images/rare-altum.gif'
-const nft2 = '/images/rare-altum.gif'
+const nft1 = '/images/Spaceship_LowFPS.gif '
+const nft2 = '/images/Character_LowFPS.gif'
 const nft3 = '/images/rare-altum.gif'
 const nft4 = '/images/ncommon-regno.gif'
 const nft5 = '/images/common-necesse.gif'
