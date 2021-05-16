@@ -15,6 +15,9 @@ const NFTWrapper = styled.button`
   outline: none;
   background: none;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   & .nth-checked-icon {
     content: '""';
@@ -28,6 +31,14 @@ const NFTWrapper = styled.button`
     background-color: hsl(230, 37%, 97%);
     border-radius: 6px;
     width: 100%;
+    height: 232px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .nft-preview img {
+    border-radius: 6px;
   }
 
   &.active {
@@ -64,6 +75,12 @@ const NFTWrapper = styled.button`
 
     & .mobile {
       display: block;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    & .nft-preview {
+      height: auto;
     }
   }
 `
@@ -120,7 +137,9 @@ const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard
     <NFTWrapper key={ID} type="button" onClick={() => handleClickCard(ID)} className={isActive ? 'active' : ''}>
       {isActive && <img className="nth-checked-icon" src={nftChecked} alt="nft-checked" />}
 
-      <img src={card.img} alt="nft-preview" className="nft-preview" />
+      <div className="nft-preview">
+        <img src={card.img} alt="nft-preview" />
+      </div>
       <StyledHeading className="desktop">{card.headline}</StyledHeading>
 
       <ContentHolder>
