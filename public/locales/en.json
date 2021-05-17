@@ -95,6 +95,7 @@
   "butNftCards": "Header",
   "nftQuantity": "NFT Quantity",
   "chooseStablecoin": "Choose stablecoin",
+  "alreadyPurchased": "Already Purchased",
   "buyAmountCards": "Buy {{count}} cards",
   "maxAmount": "Enter from 1 to {{count}}",
   "priceAndCurrency": "Price & Currency",
