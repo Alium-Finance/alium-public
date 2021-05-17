@@ -87,7 +87,9 @@ function Migrate() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const useBaseTokenInfo = (n) =>
     [...Array(n)].map((_, i) => ({
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       left: useTokenAddress(tokenList[i]?.left),
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       right: useTokenAddress(tokenList[i]?.right),
     }))
   const filteredTokenInfo = useBaseTokenInfo(10).filter((item) => item.left !== undefined && item.right !== undefined)

@@ -158,22 +158,29 @@ const Home = () => {
   const [isOpenModal, setOpenModal] = useState(false)
   const [isHideModalOpen, setHideModalOpen] = useState(false)
   const { account, chainId } = useActiveWeb3React()
+  const nftContract = useNFTPrivateContract()
+  const collectibleContract = useCollectibleContract()
 
   const { t } = useTranslation()
 
-  // TODO: PUBLIC ROUND / off whitelist
-  // TODO: TEMP / off modal "Unlock Wallet"
-  // useEffect(() => {
-  //   if (account) {
-  //     setHideModalOpen(false)
-  //     if (whitelist.indexOf(account) === -1) {
-  //       if (!isOpenModal) setOpenModal(true)
-  //     } else if (isOpenModal) setOpenModal(false)
-  //   } else if (!isHideModalOpen) setHideModalOpen(true)
-  // }, [account, isHideModalOpen, isOpenModal])
+  useEffect(() => {
+    setHideModalOpen(!account)
 
-  const nftContract = useNFTPrivateContract()
-  const collectibleContract = useCollectibleContract()
+    if (account) {
+      nftContract
+        ?.isMember(account)
+        .then((isMemberBool) => {
+          if (isMemberBool) {
+            if (isOpenModal) {
+              setOpenModal(false)
+            }
+          } else if (!isOpenModal) {
+            setOpenModal(true)
+          }
+        })
+        .catch((err) => console.error('isMember error', err))
+    }
+  }, [account, isOpenModal, nftContract])
 
   const [values, setValues] = useState<{
     currency: string
@@ -301,6 +308,7 @@ const Home = () => {
       .catch((err) => console.error(err))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [approval, approveCallback] = useApproveCallback(
     new TokenAmount(
       new WrappedTokenInfo(currencies.match[values.currency], []),
@@ -333,6 +341,7 @@ const Home = () => {
         ).toString()
       )
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isValidInputs = values.count && values.currency && sufficientBalance
 
   const accountEllipsis = account ? `${account.substring(0, 8)}...${account.substring(account.length - 8)}` : null
