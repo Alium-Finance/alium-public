@@ -443,6 +443,7 @@ const Home = () => {
           <GridContainer>
             {cardList.map((card) => (
               <NftCard
+                key={card.id}
                 card={card}
                 handleClickCard={handleClickCard}
                 activeCard={activeCard}
