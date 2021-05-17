@@ -271,13 +271,13 @@ const Home = () => {
     setMaxAmountOfCards(maxCardsAmounts[id])
   }
 
-  const handleClickMax = () => {
-    setValues((oldValues) => ({
-      ...oldValues,
-      // count: maxAmountOfCards, // TODO: PUBLIC ROUND / max 1
-      count: 1,
-    }))
-  }
+  // TODO: disable 'MAX' button for public round
+  // const handleClickMax = () => {
+  //   setValues((oldValues) => ({
+  //     ...oldValues,
+  //     count: maxAmountOfCards
+  //   }))
+  // }
 
   const [txHash, setTxHash] = useState('xczxczxczxc')
   const [tempTxHash, setTempTxHash] = useState('')
@@ -513,7 +513,8 @@ const Home = () => {
                 onChange={handleChangeQuantity}
                 variant="outlined"
               />
-              {!!maxAmountOfCards && <FormHelperText>{t('maxAmount', { count: maxAmountOfCards })}</FormHelperText>}
+              {/* TODO: disable for public round */}
+              {/* {!!maxAmountOfCards && <FormHelperText>{t('maxAmount', { count: maxAmountOfCards })}</FormHelperText>} */}
             </FormControl>
             <StyledFormControl variant="outlined">
               <InputLabel shrink ref={inputLabel}>

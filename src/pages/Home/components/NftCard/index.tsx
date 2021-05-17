@@ -147,7 +147,7 @@ const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard
 
         <Flex justifyContent="space-between">
           <StyledListLabel>{t('cards.remainingCards')}</StyledListLabel>
-          <StyledListValue>{maxCardsAmounts[card.id] || card.cards}</StyledListValue>
+          <StyledListValue>{maxCardsAmounts[card.id - 5] || card.cards}</StyledListValue>
         </Flex>
         <Flex justifyContent="space-between" mt="10px">
           <StyledListLabel>{t('cards.cardCost')}</StyledListLabel>
