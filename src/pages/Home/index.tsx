@@ -211,7 +211,6 @@ const Home = () => {
   const [labelWidth, setLabelWidth] = useState<any>(0)
   const [maxAmountOfCards, setMaxAmountOfCards] = useState<any>()
   const [maxCardsAmounts, setMaxCardsAmount] = useState<number[]>([])
-  console.log('maxAmountOfCards', maxAmountOfCards)
 
   const activeCardFromList = cardList.find((i) => i.id.toString() === activeCard) || cardList[0]
 
@@ -514,7 +513,8 @@ const Home = () => {
                 onChange={handleChangeQuantity}
                 variant="outlined"
               />
-              {!!maxAmountOfCards && <FormHelperText>{t('maxAmount', { count: maxAmountOfCards })}</FormHelperText>}
+              {/* TODO: disable for public round */}
+              {/* {!!maxAmountOfCards && <FormHelperText>{t('maxAmount', { count: maxAmountOfCards })}</FormHelperText>} */}
             </FormControl>
             <StyledFormControl variant="outlined">
               <InputLabel shrink ref={inputLabel}>
