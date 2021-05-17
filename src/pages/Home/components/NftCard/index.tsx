@@ -28,13 +28,19 @@ const NFTWrapper = styled.button`
   }
 
   & .nft-preview {
-    background-color: hsl(230, 37%, 97%);
+    background-color: hsl(0, 0%, 0%);
+    padding: 6px 0;
     border-radius: 6px;
     width: 100%;
-    height: 232px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &:nth-child(3) .nft-preview,
+  &:nth-child(4) .nft-preview,
+  &:nth-child(5) .nft-preview {
+    background-color: hsl(230, 37%, 97%);
   }
 
   & .nft-preview img {
@@ -77,19 +83,13 @@ const NFTWrapper = styled.button`
       display: block;
     }
   }
-
-  @media screen and (max-width: 1200px) {
-    & .nft-preview {
-      height: auto;
-    }
-  }
 `
 
 const ContentHolder = styled.div`
   padding: 0 0 10px 6px;
-  width: 152px;
+  width: 155px;
   @media screen and (min-width: 1025px) {
-    width: auto;
+    width: 100%;
     padding: 0;
   }
 `
