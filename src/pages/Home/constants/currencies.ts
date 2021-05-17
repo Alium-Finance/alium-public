@@ -7,16 +7,16 @@ const currencies = {
       {
         name: 'BUSD',
         symbol: 'BUSD (Test)',
-        address: '0x3e919A1284A374260D99276672D354fDe2a09Cc0',
+        address: '0x8301F2213c0eeD49a7E28Ae4c3e91722919B8B47',
         chainId: 97,
         decimals: 18,
       },
       {
         name: 'USDT',
         symbol: 'USDT (Test)',
-        address: '0x1138eBb3101f557b28326a28B6f192c7feCC95f7',
+        address: '0xA11c8D9DC9b66E209Ef60F0C8D969D3CD988782c',
         chainId: 97,
-        decimals: 18,
+        decimals: 6,
       },
       {
         name: 'USDC',
@@ -30,16 +30,16 @@ const currencies = {
       BUSD: {
         name: 'BUSD',
         symbol: 'BUSD (Test)',
-        address: '0x3e919A1284A374260D99276672D354fDe2a09Cc0',
+        address: '0x8301F2213c0eeD49a7E28Ae4c3e91722919B8B47',
         chainId: 97,
         decimals: 18,
       },
       USDT: {
         name: 'USDT (ALium Test)',
         symbol: 'USDT (Test)',
-        address: '0x1138ebb3101f557b28326a28b6f192c7fecc95f7',
+        address: '0xA11c8D9DC9b66E209Ef60F0C8D969D3CD988782c',
         chainId: 97,
-        decimals: 18,
+        decimals: 6,
       },
       USDC: {
         name: 'USDC',

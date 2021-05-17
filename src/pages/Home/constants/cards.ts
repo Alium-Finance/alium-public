@@ -16,6 +16,7 @@ export type CardType = {
 
 const cardList = [
   {
+    id: 9,
     img: nft1,
     headline: 'Legendary Illustris',
     cards: '175',
@@ -24,6 +25,7 @@ const cardList = [
     price: 5000,
   },
   {
+    id: 8,
     img: nft2,
     headline: 'Epic Castus',
     cards: '350',
@@ -32,6 +34,7 @@ const cardList = [
     price: 2500,
   },
   {
+    id: 7,
     img: nft3,
     headline: 'Rare Altum',
     cards: '500',
@@ -40,21 +43,23 @@ const cardList = [
     price: 1000,
   },
   {
+    id: 6,
     img: nft4,
     headline: 'Uncommon Regno',
     cards: '1 250',
-    cost: '300 BUSD',
+    cost: '500 BUSD',
     tokens: '375 000 ALM',
-    price: 300,
+    price: 500,
   },
   {
+    id: 5,
     img: nft5,
     headline: 'Common Necesse',
     cards: '2 500',
-    cost: '150 BUSD',
+    cost: '100 BUSD',
     tokens: '375 000 ALM',
-    price: 150,
+    price: 100,
   },
-].map((item, i) => ({ ...item, id: i })) as Array<CardType>
+].map((item) => ({ ...item })) as Array<CardType>
 
 export default cardList
