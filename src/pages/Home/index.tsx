@@ -159,11 +159,41 @@ const NotifyMembers = (hash, count, card, currency) => {
 const Home = () => {
   const [isOpenModal, setOpenModal] = useState(false)
   const [isHideModalOpen, setHideModalOpen] = useState(false)
+  const [purchasedCards, setPurchasedCards] = useState<string[]>([])
+  const [activeCard, setActiveCard] = useState<any>('5')
+  const isActiveCardPurchased = purchasedCards.includes(activeCard)
   const { account, chainId } = useActiveWeb3React()
   const nftContract = useNFTPrivateContract()
   const collectibleContract = useCollectibleContract()
-
   const { t } = useTranslation()
+
+  const updatePurchasedCards = useCallback(() => {
+    ;(async () => {
+      try {
+        const accountTokens = (await collectibleContract?.balanceOf(account)).toString()
+
+        let accountTokensIds: string[] = []
+        for (let i = 0; i < Number(accountTokens); i++) {
+          const tokenId: string = (await collectibleContract?.tokenOfOwnerByIndex(account, i)).toString()
+          accountTokensIds = [...accountTokensIds, tokenId]
+        }
+
+        let accountTokenTypes: string[] = []
+        // eslint-disable-next-line no-restricted-syntax
+        for (const tokenId of accountTokensIds) {
+          const tokenType: string = (await collectibleContract?.getTokenType(tokenId)).toString()
+          accountTokenTypes = [...accountTokenTypes, tokenType]
+        }
+        setPurchasedCards(accountTokenTypes)
+      } catch (err) {
+        console.error(err)
+      }
+    })()
+  }, [account, collectibleContract])
+
+  useEffect(() => {
+    updatePurchasedCards()
+  }, [updatePurchasedCards])
 
   useEffect(() => {
     setHideModalOpen(!account)
@@ -184,19 +214,13 @@ const Home = () => {
     }
   }, [account, isOpenModal, nftContract])
 
-  const [values, setValues] = useState<{
-    currency: string
-    count: number
-  }>({
-    currency: currencies.stablecoins[0],
-    count: 1,
-  })
+  type values = { currency: string; count: number }
+  const [values, setValues] = useState<values>({ currency: currencies.stablecoins[0], count: 1 })
 
   const inputLabel = React.useRef(null)
   const [labelWidth, setLabelWidth] = useState<any>(0)
   const [maxAmountOfCards, setMaxAmountOfCards] = useState<any>()
   const [maxCardsAmounts, setMaxCardsAmount] = useState<number[]>([])
-  const [activeCard, setActiveCard] = useState<any>('5')
 
   const activeCardFromList = cardList.find((i) => i.id.toString() === activeCard) || cardList[0]
 
@@ -469,7 +493,7 @@ const Home = () => {
           <GridForm>
             <FormControl>
               <StyledTextField
-                disabled={!maxAmountOfCards}
+                disabled={!undefined}
                 label={t('nftQuantity')}
                 type="text"
                 name="count"
@@ -508,7 +532,7 @@ const Home = () => {
                 value={values.currency}
                 onChange={handleChangeCurrency}
                 name="currency"
-                // disabled={!maxAmountOfCards} // TODO: TEMP
+                disabled={!maxAmountOfCards || isActiveCardPurchased}
                 input={<OutlinedInput style={{ background: 'none' }} notched labelWidth={labelWidth} />}
               >
                 {currencies.stablecoins.map((item) => (
@@ -538,9 +562,13 @@ const Home = () => {
                 <AutoColumn gap="md">
                   {isValidInputs && activeCard && values.count <= maxAmountOfCards ? (
                     approval === ApprovalState.APPROVED ? (
-                      <RowBetween>
-                        <Button onClick={handleBuy}>{t('buyAmountCards', { count: values.count })}</Button>
-                      </RowBetween>
+                      isActiveCardPurchased ? (
+                        <GreyCard style={{ textAlign: 'center' }}>{t('alreadyPurchased')}</GreyCard>
+                      ) : (
+                        <RowBetween>
+                          <Button onClick={handleBuy}>{t('buyAmountCards', { count: values.count })}</Button>
+                        </RowBetween>
+                      )
                     ) : (
                       <RowBetween>
                         <Button onClick={approveCallback} disabled={approval === ApprovalState.PENDING}>
