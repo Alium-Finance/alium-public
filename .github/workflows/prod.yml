@@ -1,22 +1,18 @@
-name: TEST_FTP
+name: prod
 
-on:
-  push:
-    branches:
-      - develop
-
+on: workflow_dispatch 
+      
 jobs:
   build:
-
+    if: github.ref == 'refs/heads/master'  
     runs-on: ubuntu-18.04
-
     steps:
       - uses: actions/checkout@v2.1.1
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          node-version: 14
+          registry-url: https://registry.npmjs.org
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
@@ -29,13 +25,19 @@ jobs:
       - name: Install dependincies
         run: yarn install
       - name: Build project
-        run: yarn build:dev
-      - name: SFTP Deployment
-        uses: appleboy/scp-action@master
+        run: yarn build      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
         with:
-          host: ${{secrets.SFTP_SERVER}}
-          username: ${{secrets.SFTP_USER}}
-          key: ${{secrets.SFTP_KEY}}
-          source: "build/*"
-          target: "/var/www/nft_dev/"
-          strip_components: 1
+          name: build
+          path: build
+
+  deploy_prod:
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    runs-on: [self-hosted, prod]
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - run: cp -r ./ ~/$GITHUB_REPOSITORY

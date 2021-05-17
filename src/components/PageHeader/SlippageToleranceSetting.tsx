@@ -72,7 +72,7 @@ const SlippageToleranceSettings = () => {
     } catch {
       setError(t('errors.enterValidPercentage'))
     }
-  }, [value, setError, setUserslippageTolerance])
+  }, [value, setError, setUserslippageTolerance, t])
 
   // Notify user if slippage is risky
   useEffect(() => {

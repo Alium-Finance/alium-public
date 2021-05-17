@@ -1,5 +1,5 @@
 // import { Heading, Button, Flex, ConnectorId, useWalletModal } from '@alium-official/uikit'
-import { Button, Flex, Heading, useWalletModal } from '@alium-official/uikit'
+import { Button, Flex, useWalletModal } from '@alium-official/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { injected, walletconnect } from 'connectors'
 import React from 'react'
@@ -44,24 +44,24 @@ const ImageWrap = styled.div`
   margin-right: 20px;
 `
 
-const StyledHeading = styled(Heading)`
-  &.heading--desktop {
-    margin: 0;
-    margin-left: 100px;
-    display: block;
-  }
-  @media screen and (max-width: 1240px) {
-    &.heading--desktop {
-      font-size: 30px;
-      margin-left: 30px;
-    }
-  }
-  @media screen and (max-width: 1024px) {
-    &.heading--desktop {
-      display: none;
-    }
-  }
-`
+// const StyledHeading = styled(Heading)`
+//   &.heading--desktop {
+//     margin: 0;
+//     margin-left: 100px;
+//     display: block;
+//   }
+//   @media screen and (max-width: 1240px) {
+//     &.heading--desktop {
+//       font-size: 30px;
+//       margin-left: 30px;
+//     }
+//   }
+//   @media screen and (max-width: 1024px) {
+//     &.heading--desktop {
+//       display: none;
+//     }
+//   }
+// `
 
 const Header = () => {
   const { account, activate, deactivate } = useWeb3React()
