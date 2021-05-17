@@ -1,16 +1,7 @@
 import { JSBI, TokenAmount } from '@alium-official/sdk'
 import { Button, Flex, Heading, Text } from '@alium-official/uikit'
 import { parseUnits } from '@ethersproject/units'
-import {
-  FormControl,
-  FormHelperText,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
-  OutlinedInput,
-  Select,
-} from '@material-ui/core'
+import { FormControl, FormHelperText, InputLabel, MenuItem, OutlinedInput, Select } from '@material-ui/core'
 import axios from 'axios'
 import { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -40,7 +31,6 @@ import cardList from './constants/cards'
 import currencies from './constants/currencies'
 import emails from './constants/membersList'
 import bgIMG from './images/background-img.svg'
-import max from './images/max-button.svg'
 
 const ContentHolder = styled.div`
   position: relative;
@@ -161,7 +151,7 @@ const Home = () => {
   const [isHideModalOpen, setHideModalOpen] = useState(false)
   const [purchasedCards, setPurchasedCards] = useState<string[]>([])
   const [activeCard, setActiveCard] = useState<any>('5')
-  const isActiveCardPurchased = purchasedCards.includes(activeCard)
+  const isActiveCardPurchased = purchasedCards.includes(String(Number(activeCard) + 1))
   const { account, chainId } = useActiveWeb3React()
   const nftContract = useNFTPrivateContract()
   const collectibleContract = useCollectibleContract()
@@ -511,13 +501,14 @@ const Home = () => {
                     maxLength: 2,
                     autoComplete: 'off',
                   },
-                  endAdornment: (
-                    <InputAdornment position="end" style={{ marginRight: '10px' }}>
-                      <IconButton onClick={handleClickMax} edge="end" disabled={!maxAmountOfCards}>
-                        <img src={max} alt="icon" />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
+                  // TODO: disable 'MAX' button for public round
+                  // endAdornment: (
+                  //   <InputAdornment position="end" style={{ marginRight: '10px' }}>
+                  //     <IconButton onClick={handleClickMax} edge="end" disabled={!maxAmountOfCards}>
+                  //       <img src={max} alt="icon" />
+                  //     </IconButton>
+                  //   </InputAdornment>
+                  // ),
                 }}
                 onChange={handleChangeQuantity}
                 variant="outlined"
