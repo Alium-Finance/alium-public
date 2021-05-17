@@ -211,6 +211,7 @@ const Home = () => {
   const [labelWidth, setLabelWidth] = useState<any>(0)
   const [maxAmountOfCards, setMaxAmountOfCards] = useState<any>()
   const [maxCardsAmounts, setMaxCardsAmount] = useState<number[]>([])
+  console.log('maxAmountOfCards', maxAmountOfCards)
 
   const activeCardFromList = cardList.find((i) => i.id.toString() === activeCard) || cardList[0]
 
@@ -271,13 +272,13 @@ const Home = () => {
     setMaxAmountOfCards(maxCardsAmounts[id])
   }
 
-  const handleClickMax = () => {
-    setValues((oldValues) => ({
-      ...oldValues,
-      // count: maxAmountOfCards, // TODO: PUBLIC ROUND / max 1
-      count: 1,
-    }))
-  }
+  // TODO: disable 'MAX' button for public round
+  // const handleClickMax = () => {
+  //   setValues((oldValues) => ({
+  //     ...oldValues,
+  //     count: maxAmountOfCards
+  //   }))
+  // }
 
   const [txHash, setTxHash] = useState('xczxczxczxc')
   const [tempTxHash, setTempTxHash] = useState('')
