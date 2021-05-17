@@ -308,6 +308,7 @@ const Home = () => {
       .catch((err) => console.error(err))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [approval, approveCallback] = useApproveCallback(
     new TokenAmount(
       new WrappedTokenInfo(currencies.match[values.currency], []),
@@ -340,6 +341,7 @@ const Home = () => {
         ).toString()
       )
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isValidInputs = values.count && values.currency && sufficientBalance
 
   const accountEllipsis = account ? `${account.substring(0, 8)}...${account.substring(account.length - 8)}` : null

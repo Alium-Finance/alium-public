@@ -47,6 +47,7 @@ const Web3StatusGeneric = styled(Button)`
     outline: none;
   }
 `
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Web3StatusError = styled(Web3StatusGeneric)`
   background-color: ${({ theme }) => theme.colors.failure};
   border: 1px solid ${({ theme }) => theme.colors.failure};
@@ -112,6 +113,7 @@ const Text = styled.p`
   font-weight: 500;
 `
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NetworkIcon = styled(Activity)`
   margin-left: 0.25rem;
   margin-right: 0.5rem;
@@ -168,7 +170,7 @@ function StatusIcon({ connector }: { connector: AbstractConnector }) {
 
 function Web3StatusInner() {
   const { t } = useTranslation()
-  const { account, connector, error } = useWeb3React()
+  const { account, connector } = useWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
 
