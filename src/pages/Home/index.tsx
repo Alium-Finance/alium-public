@@ -12,10 +12,12 @@ import {
   Select,
 } from '@material-ui/core'
 import axios from 'axios'
+import { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Modal from 'components/Modal'
 import { RowBetween } from 'components/Row'
+import { Dots } from 'components/swap/styleds'
 import { TransactionSubmittedContent, TransactionSucceedContent } from 'components/TransactionConfirmationModal'
 import { NFT_PRIVATE_ADDRESS } from 'constants/abis/nftPrivate'
 import { useActiveWeb3React } from 'hooks'
@@ -187,16 +189,19 @@ const Home = () => {
   const [labelWidth, setLabelWidth] = useState<any>(0)
   const [maxAmountOfCards, setMaxAmountOfCards] = useState<any>()
   const [maxCardsAmounts, setMaxCardsAmount] = useState<number[]>([])
-  const [activeCard, setActiveCard] = useState<any>('0')
+  const [activeCard, setActiveCard] = useState<any>('5')
+
+  const activeCardFromList = cardList.find((i) => i.id.toString() === activeCard) || cardList[0]
 
   const updateMaxCardsAmount = useCallback(() => {
     ;(async () => {
       const maxAmounts = await Promise.all(
-        [1, 2, 3].map(async (item) => {
+        [6, 7, 8, 9, 10].map(async (item) => {
           const result = await collectibleContract
             ?.getTypeInfo(item)
             .then((resp) => {
               const amount = +resp.maxSupply - +resp.totalSupply
+
               if ((item - 1).toString() === activeCard) {
                 setMaxAmountOfCards(amount)
               }
@@ -270,13 +275,14 @@ const Home = () => {
   const addTransaction = useTransactionAdder()
 
   const handleBuy = () => {
-    const totalAmount = `${values.count * cardList[activeCard]?.price}`
+    const totalAmount = `${values.count * +activeCardFromList?.price}`
     const args = [
       currencies.match[values.currency]?.address,
       +activeCard + 1,
       parseUnits(totalAmount, currencies.match[values.currency]?.decimals),
       values.count,
     ]
+
     nftContract?.estimateGas
       .buyBatch(...args, { from: account })
       .then((estimatedGasLimit) => {
@@ -328,7 +334,7 @@ const Home = () => {
     parseInt(balance?.raw.toString()) >=
       parseInt(
         parseUnits(
-          (+cardList[activeCard]?.price * values.count).toString(),
+          (+activeCardFromList.price * values.count).toString(),
           currencies.match[values.currency]?.decimals
         ).toString()
       )
@@ -498,13 +504,13 @@ const Home = () => {
               >
                 {currencies.stablecoins.map((item) => (
                   <MenuItem style={{ backgroundColor: 'transparent' }} value={item}>
-                    {(+cardList[activeCard]?.price * values.count).toLocaleString()} {item}
+                    {(+activeCardFromList?.price * values.count).toLocaleString()} {item}
                   </MenuItem>
                 ))}
               </Select>
               <FormHelperText>{t('chooseStablecoin')}</FormHelperText>
             </StyledFormControl>
-            <ButtonWrap>
+            {/* <ButtonWrap>
               {!account ? (
                 <ConnectWalletButton fullwidth />
               ) : (
@@ -514,9 +520,9 @@ const Home = () => {
                   </RowBetween>
                 </AutoColumn>
               )}
-            </ButtonWrap>
+            </ButtonWrap> */}
 
-            {/* <ButtonWrap>
+            <ButtonWrap>
               {!account ? (
                 <ConnectWalletButton fullwidth />
               ) : (
@@ -548,7 +554,7 @@ const Home = () => {
                   )}
                 </AutoColumn>
               )}
-            </ButtonWrap> */}
+            </ButtonWrap>
           </GridForm>
         </AppBody>
       </CardWrapper>
