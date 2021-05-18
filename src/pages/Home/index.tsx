@@ -434,7 +434,11 @@ const Home = () => {
                 color: '#0B1359',
               }}
             >
-              {t('didNotHelp')}
+              {t('didNotHelp1')}{' '}
+              <a style={{ color: '#6C5DD3' }} href="https://t.me/stacie_alium">
+                @stacie_alium
+              </a>{' '}
+              {t('didNotHelp2')}
             </Text>
           </Flex>
         </Modal>
