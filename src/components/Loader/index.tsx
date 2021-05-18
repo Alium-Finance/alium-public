@@ -26,9 +26,60 @@ const StyledSVG = styled.svg<{ size: string; stroke?: string }>`
 export default function Loader({ size = '16px', stroke, ...rest }: { size?: string; stroke?: string }) {
   return (
     <StyledSVG viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" size={size} stroke={stroke} {...rest}>
+      <path d="M12.5 2V6" stroke="#6C5DD3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path
-        d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.27455 20.9097 6.80375 19.1414 5"
-        strokeWidth="2.5"
+        opacity="0.5"
+        d="M12.5 18V22"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.1"
+        d="M5.42969 4.93018L8.25969 7.76018"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.6"
+        d="M16.7402 16.2402L19.5702 19.0702"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.2"
+        d="M2.5 12H6.5"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.7"
+        d="M18.5 12H22.5"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M5.42969 19.0702L8.25969 16.2402"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.8"
+        d="M16.7402 7.76018L19.5702 4.93018"
+        stroke="#6C5DD3"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

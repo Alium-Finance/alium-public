@@ -24,6 +24,7 @@ import { WrappedTokenInfo } from 'state/lists/hooks'
 import { useTransactionAdder } from 'state/transactions/hooks'
 import { useCurrencyBalance } from 'state/wallet/hooks'
 import styled from 'styled-components'
+import Loader from '../../components/Loader'
 import AppBody from '../AppBody'
 import NftCard from './components/NftCard'
 import { StyledFormControl, StyledTextField } from './components/Styled/Inputs'
@@ -528,7 +529,7 @@ const Home = () => {
                 value={values.currency}
                 onChange={handleChangeCurrency}
                 name="currency"
-                disabled={!maxAmountOfCards || isActiveCardPurchased}
+                disabled={!maxAmountOfCards}
                 input={<OutlinedInput style={{ background: 'none' }} notched labelWidth={labelWidth} />}
               >
                 {currencies.stablecoins.map((item) => (
@@ -578,11 +579,18 @@ const Home = () => {
                     )
                   ) : (
                     <GreyCard style={{ textAlign: 'center' }}>
-                      {balance && !sufficientBalance
-                        ? t('insufficientBalance')
-                        : !values.count
-                        ? t('enterInputData')
-                        : t('pleaseWait')}
+                      {balance && !sufficientBalance ? (
+                        <span>{t('insufficientBalance')}</span>
+                      ) : !values.count ? (
+                        <span>{t('enterInputData')}</span>
+                      ) : (
+                        <div style={{ position: 'relative' }}>
+                          &nbsp;
+                          <div style={{ position: 'absolute', margin: '-20px auto 0 auto', width: '100%' }}>
+                            <Loader size="24px" />
+                          </div>
+                        </div>
+                      )}
                     </GreyCard>
                   )}
                 </AutoColumn>
