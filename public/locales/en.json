@@ -88,7 +88,7 @@
   "toleranceExplanation": "Lowering this limit decreases your risk of frontrunning. However, this makes more likely that your transaction will fail due to normal price movements.",
   "tokenSearchPlaceholder": "Search name or paste address",
   "pleaseUnlockWallet": "Please unlock your wallet to get access",
-  "sorryNotFound": "Sorry, we haven’t found this address in a Private Sale Whitelist",
+  "sorryNotFound": "Sorry, we haven’t found this address in a Public Sale Whitelist",
   "haveBeenRegistered": "If you have been registered for the Whitelist before, please try to connect with another address",
   "didNotHelp1": "If that didn't help, please contact",
   "didNotHelp2": "and he will help you to solve this issue.",
