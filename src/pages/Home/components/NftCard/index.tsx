@@ -19,6 +19,12 @@ const NFTWrapper = styled.button`
   flex-direction: column;
   justify-content: space-between;
 
+  & video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
   & .nth-checked-icon {
     content: '""';
     display: none;
@@ -27,8 +33,34 @@ const NFTWrapper = styled.button`
     left: 16px;
   }
 
+  & .video {
+    background-color: hsl(0, 0%, 100%);
+    padding: 6px 0;
+    border-radius: 6px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 120px;
+  }
+
+  & .video video {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+  }
+  @media screen and (min-width: 1025px) {
+    & .video {
+      max-width: initial;
+    }
+    & .video video {
+      max-height: 100%;
+      max-width: 140px;
+    }
+  }
+
   & .nft-preview {
-    background-color: hsl(0, 0%, 0%);
+    background-color: hsl(0, 0%, 100%);
     padding: 6px 0;
     border-radius: 6px;
     width: 100%;
@@ -132,14 +164,24 @@ const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard
   const { t } = useTranslation()
   const isActive = `${card.id}` === activeCard
   const ID = `${card.id}`
+  const isMp4 = card.img.split('.')[1] === 'mp4'
 
   return (
     <NFTWrapper key={ID} type="button" onClick={() => handleClickCard(ID)} className={isActive ? 'active' : ''}>
       {isActive && <img className="nth-checked-icon" src={nftChecked} alt="nft-checked" />}
 
-      <div className="nft-preview">
-        <img src={card.img} alt="nft-preview" />
-      </div>
+      {isMp4 ? (
+        <div className="video">
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video autoPlay loop muted>
+            <source src={card.img} type="video/mp4" />
+          </video>
+        </div>
+      ) : (
+        <div className="nft-preview">
+          <img src={card.img} alt="nft-preview" />
+        </div>
+      )}
       <StyledHeading className="desktop">{card.headline}</StyledHeading>
 
       <ContentHolder>
