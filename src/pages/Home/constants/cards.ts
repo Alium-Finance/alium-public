@@ -20,8 +20,8 @@ const cardList = [
     img: nft1,
     headline: 'Legendary Illustris',
     cards: '175',
-    cost: '5 000 BUSD',
-    tokens: '300 000 ALM',
+    cost: '5000 BUSD',
+    tokens: '15529 ALM',
     price: 5000,
   },
   {
@@ -29,8 +29,8 @@ const cardList = [
     img: nft2,
     headline: 'Epic Castus',
     cards: '350',
-    cost: '2 500 BUSD',
-    tokens: '875 000 ALM',
+    cost: '2500 BUSD',
+    tokens: '7764 ALM',
     price: 2500,
   },
   {
@@ -38,8 +38,8 @@ const cardList = [
     img: nft3,
     headline: 'Rare Altum',
     cards: '500',
-    cost: '1 000 BUSD',
-    tokens: '500 000 ALM',
+    cost: '1000 BUSD',
+    tokens: '3106 ALM',
     price: 1000,
   },
   {
@@ -48,7 +48,7 @@ const cardList = [
     headline: 'Uncommon Regno',
     cards: '1 250',
     cost: '500 BUSD',
-    tokens: '375 000 ALM',
+    tokens: '1553 ALM',
     price: 500,
   },
   {
@@ -57,7 +57,7 @@ const cardList = [
     headline: 'Common Necesse',
     cards: '2 500',
     cost: '100 BUSD',
-    tokens: '375 000 ALM',
+    tokens: '310 ALM',
     price: 100,
   },
 ].map((item) => ({ ...item })) as Array<CardType>
