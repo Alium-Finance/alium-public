@@ -1,8 +1,8 @@
-const nft1 = '/images/legendary-illustris.gif '
-const nft2 = '/images/epic-castus.gif'
-const nft3 = '/images/rare-altum.gif'
-const nft4 = '/images/uncommon-regno.gif'
-const nft5 = '/images/common-necesse.gif'
+const nft1 = '/video/nft/legendary-illustris.mp4'
+const nft2 = '/video/nft/epic-castus.mp4'
+const nft3 = '/video/nft/rare-altum.mp4'
+const nft4 = '/video/nft/uncommon-regno.mp4'
+const nft5 = '/video/nft/common-necesse.mp4'
 
 export type CardType = {
   id: number
