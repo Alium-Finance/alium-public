@@ -1,7 +1,6 @@
 // import { Heading, Button, Flex, ConnectorId, useWalletModal } from '@alium-official/uikit'
 import { Button, Flex, useWalletModal } from '@alium-official/uikit'
 import { useWeb3React } from '@web3-react/core'
-import { injected, walletconnect } from 'connectors'
 import useAuth from 'hooks/useAuth'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -65,14 +64,7 @@ const ImageWrap = styled.div`
 // `
 
 const Header = () => {
-  const { account, activate, deactivate } = useWeb3React()
-
-  const handleLogin = (connectorId: any) => {
-    if (connectorId === 'walletconnect') {
-      return activate(walletconnect)
-    }
-    return activate(injected)
-  }
+  const { account, activate } = useWeb3React()
 
   const { t } = useTranslation()
 
