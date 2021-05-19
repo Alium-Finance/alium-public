@@ -123,6 +123,19 @@ const CopyButton = styled.button`
   }
 `
 
+const MessageWrapper = styled.div`
+  margin-top: 15px;
+  margin-left: -20rem;
+  margin-right: -20rem;
+  margin-bottom: 15px;
+
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: rgb(137, 144, 165);
+`
+
 const TransactionSucceedContent = ({ onDismiss, hash }: TransactionSucceedContentProps) => {
   const popupList = useSelector<AppState, PopupList | any>((s) => s.application.popupList)
   const filteredPopups = popupList.filter((popup) => popup.key === hash)
@@ -146,6 +159,12 @@ const TransactionSucceedContent = ({ onDismiss, hash }: TransactionSucceedConten
             <ContentHeader onDismiss={onDismiss}> </ContentHeader>
             <img className="preview-image" src={previewImg} alt="transaction-succeed-preview" />
             <Heading style={{ textAlign: 'center', marginTop: 20, marginBottom: 16 }}>{t('congratulations')}!</Heading>
+            <MessageWrapper>
+              Information on Claiming ALM Tokens using your NFT will be posted soon.
+              <br />
+              You will be able to Claim your first ALM Tokens before the 21st of May — 2 p.m. UTC
+            </MessageWrapper>
+
             <StyledDetailsText>{popupSummary.card.headline}</StyledDetailsText>
 
             <Flex alignItems="center" justifyContent="center" style={{ marginTop: '4px' }}>
