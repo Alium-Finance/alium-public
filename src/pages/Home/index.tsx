@@ -4,6 +4,7 @@ import { parseUnits } from '@ethersproject/units'
 import { FormControl, FormHelperText, InputLabel, MenuItem, OutlinedInput, Select } from '@material-ui/core'
 import axios from 'axios'
 import { GreyCard } from 'components/Card'
+import Clock from 'components/Clock/Clock'
 import { AutoColumn } from 'components/Column'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Modal from 'components/Modal'
@@ -129,6 +130,15 @@ const AddressWrap = styled.div`
   line-height: 20px;
   letter-spacing: 0.3px;
   color: #6c5dd3;
+`
+
+const MessageWrapper = styled.div`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: rgb(137, 144, 165);
 `
 
 const NotifyMembers = (hash, count, card, currency) => {
@@ -469,9 +479,11 @@ const Home = () => {
           <TransactionSucceedContent hash={succeedHash} onDismiss={handleSucceedModalClose} />
         </Modal>
 
-        <StyledHeading as="h1" size="xl" color="heading" mb="40px" mt="20px">
-          {t('privateRound')}
-        </StyledHeading>
+        <Clock>
+          <StyledHeading as="h1" size="xl" color="heading" mb="40px" mt="20px">
+            {t('privateRound')}
+          </StyledHeading>
+        </Clock>
 
         <AppBody>
           <GridContainer>
@@ -599,6 +611,11 @@ const Home = () => {
           </GridForm>
         </AppBody>
       </CardWrapper>
+
+      <MessageWrapper>
+        Information on Claiming ALM Tokens using your NFT will be posted soon. You will be able to Claim your first ALM
+        Tokens before the 21st of May — 2 p.m. UTC
+      </MessageWrapper>
     </ContentHolder>
   )
 }
