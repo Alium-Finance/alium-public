@@ -125,8 +125,7 @@ const CopyButton = styled.button`
 
 const MessageWrapper = styled.div`
   margin-top: 15px;
-  margin-left: -20rem;
-  margin-right: -20rem;
+
   margin-bottom: 15px;
 
   text-align: center;
@@ -162,7 +161,9 @@ const TransactionSucceedContent = ({ onDismiss, hash }: TransactionSucceedConten
             <MessageWrapper>
               Information on Claiming ALM Tokens using your NFT will be posted soon.
               <br />
-              You will be able to Claim your first ALM Tokens before the 21st of May — 2 p.m. UTC
+              You will be able to Claim your first ALM Tokens
+              <br />
+              before the 21st of May — 2 p.m. UTC
             </MessageWrapper>
 
             <StyledDetailsText>{popupSummary.card.headline}</StyledDetailsText>
