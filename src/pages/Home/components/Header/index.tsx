@@ -1,7 +1,7 @@
 // import { Heading, Button, Flex, ConnectorId, useWalletModal } from '@alium-official/uikit'
 import { Button, Flex, useWalletModal } from '@alium-official/uikit'
 import { useWeb3React } from '@web3-react/core'
-import { injected, walletconnect } from 'connectors'
+import useAuth from 'hooks/useAuth'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
@@ -64,26 +64,13 @@ const ImageWrap = styled.div`
 // `
 
 const Header = () => {
-  const { account, activate, deactivate } = useWeb3React()
+  const { account } = useWeb3React()
 
   const { t } = useTranslation()
-  const handleLogin = (connectorId: any) => {
-    if (connectorId === 'walletconnect') {
-      return activate(walletconnect)
-    }
-    return activate(injected)
-  }
 
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(
-    handleLogin,
-    deactivate,
-    account as string,
-    t('yourWallet'),
-    '',
-    t('copyAddress'),
-    t('logoutTitle'),
-    t('viewOnBscScan')
-  )
+  const { login, logout } = useAuth()
+
+  const { onPresentConnectModal } = useWalletModal(login, logout)
 
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
 
@@ -100,9 +87,7 @@ const Header = () => {
         <Flex justifyContent="space-between">
           <SocialNetworks />
           {account ? (
-            <Button onClick={onPresentAccountModal} className="login-btn">
-              {accountEllipsis}
-            </Button>
+            <Button className="login-btn">{accountEllipsis}</Button>
           ) : (
             <Button onClick={onPresentConnectModal} className="login-btn">
               <ImageWrap>
