@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import './Clock.css'
 import useTimer from './useTimer'
 
 const Clock = () => {
   const timer = useTimer()
+  useEffect(() => {
+    document.body.style.background = '#1c233d'
+  }, [])
 
   return (
     <div className="clock_container">

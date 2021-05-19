@@ -1,38 +1,6 @@
 import { addHours, differenceInMinutes, getHours, getMinutes, getSeconds } from 'date-fns'
 import { useEffect, useState } from 'react'
 
-const useTimer = () => {
-  const getTime = () => {
-    const between = Math.round(differenceInMinutes(new Date(2021, 4, 19, 15, 0, 0), new Date()) * 60)
-    return between
-  }
-  const time = getTime()
-
-  const [timeLeft, setTimeLeft] = useState(time)
-  useEffect(() => {
-    // exit early when we reach 0
-    if (!timeLeft) return
-
-    // save intervalId to clear the interval when the
-    // component re-renders
-    const intervalId = setInterval(() => {
-      setTimeLeft(timeLeft - 1)
-    }, 1000)
-
-    // clear interval on re-render to avoid memory leaks
-    // eslint-disable-next-line consistent-return
-    return () => {
-      clearInterval(intervalId)
-    }
-    // add timeLeft as a dependency to re-rerun the effect
-    // when we update it
-  }, [timeLeft])
-  // @ts-ignore
-  const formatted = convertToDuration(timeLeft)
-
-  return { ...formatted, timeLeft }
-}
-export default useTimer
 export const convertToDuration = (secondsAmount: number) => {
   const normalizeTime = (time: string): string => (time.length === 1 ? `0${time}` : time)
 
@@ -57,3 +25,29 @@ export const convertToDuration = (secondsAmount: number) => {
     hoursOutput,
   }
 }
+
+const useTimer = () => {
+  const getTime = () => {
+    const between = Math.round(differenceInMinutes(new Date(2021, 4, 19, 15, 0, 0), new Date()) * 60)
+    return between
+  }
+  const time = getTime()
+
+  const [timeLeft, setTimeLeft] = useState(time)
+  useEffect(() => {
+    // exit early when we reach 0
+    if (!timeLeft) return
+
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1)
+    }, 1000)
+
+    // return () => {
+    //   clearInterval(intervalId)
+    // }
+  }, [timeLeft])
+  const formatted = convertToDuration(timeLeft)
+
+  return { ...formatted, timeLeft }
+}
+export default useTimer

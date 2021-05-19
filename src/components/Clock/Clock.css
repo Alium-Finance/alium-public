@@ -72,7 +72,7 @@ select {
   }
 }
 
-body {
+.clock_container {
   /* background-image: url('./imgs/BackgroundMain.png'); */
   background-color: #1c233d;
 }
