@@ -1,5 +1,5 @@
 import { differenceInMinutes } from 'date-fns'
-import React,{ FC } from 'react'
+import React, { FC } from 'react'
 import './Clock.css'
 import useTimer from './useTimer'
 
@@ -8,7 +8,7 @@ type Props = {
 }
 const Clock: FC<Props> = ({ children }) => {
   const getTime = () => {
-    const endData = new Date(2021, 4, 20, 15, 0, 0)
+    const endData = new Date('May 20, 2021 15:00:00 GMT+03:00')
     const between = Math.round(differenceInMinutes(endData, new Date()) * 60)
     return between
   }
