@@ -23,9 +23,9 @@ const Clock: FC<Props> = ({ children }) => {
       {children}
 
       <div className="clock">
-        <div className="days clock_time">
+        {/* <div className="days clock_time">
           <p>{timer.days}</p>
-        </div>
+        </div> */}
         <div className="hours clock_time">
           <p>{timer.hours}</p>
         </div>
