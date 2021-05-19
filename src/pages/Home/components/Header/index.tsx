@@ -70,7 +70,7 @@ const Header = () => {
 
   const { login, logout } = useAuth()
 
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(
+  const { onPresentConnectModal } = useWalletModal(
     login,
     logout,
     account as string,
