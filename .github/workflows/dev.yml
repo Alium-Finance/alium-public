@@ -48,6 +48,7 @@ jobs:
         with:
           name: build
       - run: cp -r ./ ~/$GITHUB_REPOSITORY
+      - run: sh ~/purgecash.sh
 
   #deploy_stage:
   #  needs: build
