@@ -64,7 +64,7 @@ const ImageWrap = styled.div`
 // `
 
 const Header = () => {
-  const { account, activate } = useWeb3React()
+  const { account } = useWeb3React()
 
   const { t } = useTranslation()
 
