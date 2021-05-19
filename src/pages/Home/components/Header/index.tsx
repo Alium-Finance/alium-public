@@ -106,9 +106,7 @@ const Header = () => {
         <Flex justifyContent="space-between">
           <SocialNetworks />
           {account ? (
-            <Button onClick={onPresentAccountModal} className="login-btn">
-              {accountEllipsis}
-            </Button>
+            <Button className="login-btn">{accountEllipsis}</Button>
           ) : (
             <Button onClick={onPresentConnectModal} className="login-btn">
               <ImageWrap>
