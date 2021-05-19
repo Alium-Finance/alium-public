@@ -132,6 +132,15 @@ const AddressWrap = styled.div`
   color: #6c5dd3;
 `
 
+const MessageWrapper = styled.div`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: rgb(137, 144, 165);
+`
+
 const NotifyMembers = (hash, count, card, currency) => {
   const explorer = 'https://bscscan.com/tx'
   if (process.env.NODE_ENV !== 'development') {
@@ -602,6 +611,11 @@ const Home = () => {
           </GridForm>
         </AppBody>
       </CardWrapper>
+
+      <MessageWrapper>
+        Information on Claiming ALM Tokens using your NFT will be posted soon. You will be able to Claim your first ALM
+        Tokens before the 21st of May — 2 p.m. UTC
+      </MessageWrapper>
     </ContentHolder>
   )
 }
