@@ -1,4 +1,7 @@
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
+import Clock from 'components/Clock/Clock'
+import useExpired from 'components/Clock/useExpired'
+import useTimer from 'components/Clock/useTimer'
 import React, { Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
@@ -118,6 +121,8 @@ export default function App() {
   }, [selectedLanguage])
 
   useEagerConnect()
+  const timer = useTimer()
+  const clockPath = useExpired(timer.timeLeft)
 
   return (
     <Suspense fallback={null}>
@@ -127,13 +132,14 @@ export default function App() {
             value={{ selectedLanguage, setSelectedLanguage, translatedLanguage, setTranslatedLanguage }}
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
-              <Header />
+              {!clockPath && <Header />}
               {/* <Menu> */}
               <BodyWrapper>
                 <Popups />
                 <Web3ReactManager>
                   <Switch>
                     <Route exact strict path="/" component={Home} />
+                    <Route exact strict path="/clock" component={Clock} />
                     {/* <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                       <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
