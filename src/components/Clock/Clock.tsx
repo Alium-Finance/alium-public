@@ -1,34 +1,39 @@
-import React,{ useEffect } from 'react'
+import { differenceInMinutes } from 'date-fns'
+import React,{ FC } from 'react'
 import './Clock.css'
 import useTimer from './useTimer'
 
-const Clock = () => {
-  const timer = useTimer()
-  useEffect(() => {
-    document.body.style.background = '#1c233d'
-  }, [])
+type Props = {
+  children: React.ReactNode
+}
+const Clock: FC<Props> = ({ children }) => {
+  const getTime = () => {
+    const endData = new Date(2021, 4, 20, 15, 0, 0)
+    const between = Math.round(differenceInMinutes(endData, new Date()) * 60)
+    return between
+  }
+  const time = getTime()
+  const timer = useTimer(time)
+  if (time <= 0) {
+    return <>{children}</>
+  }
 
   return (
     <div className="clock_container">
-      <div className="title">
-        <h2>COMING SOON</h2>
-      </div>
+      {children}
+
       <div className="clock">
         <div className="days clock_time">
-          <p>{0}</p>
-          <p id="time_name">D</p>
+          <p>{timer.days}</p>
         </div>
         <div className="hours clock_time">
-          <p>{timer.hoursOutput}</p>
-          <p id="time_name">H</p>
+          <p>{timer.hours}</p>
         </div>
         <div className="minutes clock_time">
           <p>{timer.minutes}</p>
-          <p id="time_name">M</p>
         </div>
         <div className="seconds clock_time">
           <p>{timer.seconds}</p>
-          <p id="time_name">S</p>
         </div>
       </div>
     </div>

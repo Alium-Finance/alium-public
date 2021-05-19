@@ -4,6 +4,7 @@ import { parseUnits } from '@ethersproject/units'
 import { FormControl, FormHelperText, InputLabel, MenuItem, OutlinedInput, Select } from '@material-ui/core'
 import axios from 'axios'
 import { GreyCard } from 'components/Card'
+import Clock from 'components/Clock/Clock'
 import { AutoColumn } from 'components/Column'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Modal from 'components/Modal'
@@ -469,9 +470,11 @@ const Home = () => {
           <TransactionSucceedContent hash={succeedHash} onDismiss={handleSucceedModalClose} />
         </Modal>
 
-        <StyledHeading as="h1" size="xl" color="heading" mb="40px" mt="20px">
-          {t('privateRound')}
-        </StyledHeading>
+        <Clock>
+          <StyledHeading as="h1" size="xl" color="heading" mb="40px" mt="20px">
+            {t('privateRound')}
+          </StyledHeading>
+        </Clock>
 
         <AppBody>
           <GridContainer>
