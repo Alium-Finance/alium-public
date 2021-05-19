@@ -43,7 +43,9 @@ const useTimer = () => {
     }, 1000)
 
     // eslint-disable-next-line consistent-return
-    return () => clearInterval(intervalId)
+    return () => {
+      clearInterval(intervalId)
+    }
   }, [timeLeft])
   const formatted = convertToDuration(timeLeft)
 
