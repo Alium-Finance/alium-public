@@ -82,18 +82,22 @@ const Header = () => {
     login,
     logout,
     account as string,
-    t('yourWallet'), //modalTitle
-    '', //modelLogout
-    t('copyAddress'), //balance
-    t('logoutTitle'), //explorerName
-    t('viewOnBscScan'), // explorerLink
-    //@ts-ignore
-    () => {},
+    t('yourWallet'),
+    '',
+    t('copyAddress'),
+    t('logoutTitle'),
+    t('viewOnBscScan'),
+    /* eslint-disable */
+    //@ts-ignore   // eslint-disable-line
+    () => {
+      return null
+    },
     () => {
       // const result = await useCurrencyBalance(account, web3)
       return null
     }
   )
+  /* eslint-enable  */
 
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
 
