@@ -70,23 +70,26 @@ const Header = () => {
 
   const { login, logout } = useAuth()
 
-  const { onPresentConnectModal } = useWalletModal(
+  /* eslint-disable */
+  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(
     login,
     logout,
     account as string,
     t('yourWallet'),
-    '',
-    t('copyAddress'),
     t('logoutTitle'),
+    t('copyAddress'),
     t('viewOnBscScan'),
-    /* eslint-disable */
-    //@ts-ignore   // eslint-disable-line
+    `https://bscscan.com/address/${account}`,
+    //@ts-ignore
+    () => {},
     () => {
-      return null
-    },
-    () => {
-      // const result = await useCurrencyBalance(account, web3)
-      return null
+      return new Promise((resolve) => {
+        resolve({
+          toSignificant() {
+            return '...'
+          },
+        })
+      })
     }
   )
   /* eslint-enable  */
@@ -106,7 +109,9 @@ const Header = () => {
         <Flex justifyContent="space-between">
           <SocialNetworks />
           {account ? (
-            <Button className="login-btn">{accountEllipsis}</Button>
+            <Button onClick={onPresentAccountModal} className="login-btn">
+              {accountEllipsis}
+            </Button>
           ) : (
             <Button onClick={onPresentConnectModal} className="login-btn">
               <ImageWrap>
