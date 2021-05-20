@@ -32,3 +32,11 @@ interface BinanceChain {
   on?: (method: string, listener: (...args: any[]) => void) => void
   removeListener?: (method: string, listener: (...args: any[]) => void) => void
 }
+
+
+interface WindowChain {
+  ethereum?: {
+    isMetaMask?: true
+    request?: (...args: any[]) => void
+  }
+}
