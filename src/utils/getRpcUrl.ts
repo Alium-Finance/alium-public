@@ -13,7 +13,6 @@ export const nodes = {
 }
 
 const getNodeUrl = (chainId: ChainId) => {
-  console.log(nodes,chainId)
   const randomIndex = random(0, nodes[chainId].length - 1)
   return nodes[chainId][randomIndex]
 }
