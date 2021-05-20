@@ -5,6 +5,7 @@ import first from '../../../images/ghub.svg'
 import fourth from '../../../images/med.svg'
 import second from '../../../images/tel.svg'
 import third from '../../../images/twi.svg'
+import coingecko from '../../../images/coingecko.svg'
 
 const header = [
   {
@@ -23,6 +24,10 @@ const header = [
     img: fourth,
     link: externalLinks.medium,
   },
+  {
+    img: coingecko,
+    link: externalLinks.coingecko
+  }
 ].map((item, i) => ({ ...item, id: i }))
 
 const Wrapper = styled.div`
