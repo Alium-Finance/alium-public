@@ -8,6 +8,8 @@ import styled from 'styled-components'
 import logoMobile from '../../images/logo-mobile.svg'
 import logo from '../../images/logo.svg'
 import icon from '../../images/plus-icon.svg'
+import useCurrencyBalance from './hook/useCurrencyBalance'
+import useWeb3 from './hook/useWeb3'
 import SocialNetworks from './SocialNetworks/SocialNetworks'
 
 const Wrapper = styled.div`
@@ -66,7 +68,16 @@ const ImageWrap = styled.div`
 const Header = () => {
   const { account } = useWeb3React()
 
+  const web3 = useWeb3()
+
   const { t } = useTranslation()
+
+  const { balance } = useCurrencyBalance(account, web3)
+
+  const useBalance = async () => {
+    // const result = await useCurrencyBalance(account, web3)
+    return balance
+  }
 
   const { login, logout } = useAuth()
 
@@ -82,15 +93,7 @@ const Header = () => {
     `https://bscscan.com/address/${account}`,
     //@ts-ignore
     () => {},
-    () => {
-      return new Promise((resolve) => {
-        resolve({
-          toSignificant() {
-            return '...'
-          },
-        })
-      })
-    }
+    useBalance
   )
   /* eslint-enable  */
 
