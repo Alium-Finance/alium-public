@@ -163,7 +163,7 @@ const TransactionSucceedContent = ({ onDismiss, hash }: TransactionSucceedConten
               <br />
               You will be able to Claim your first ALM Tokens
               <br />
-              before the 21st of May — 2 p.m. UTC
+              before the 28st of May — 2 p.m. UTC
             </MessageWrapper>
 
             <StyledDetailsText>{popupSummary.card.headline}</StyledDetailsText>
