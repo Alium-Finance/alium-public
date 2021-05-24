@@ -22,7 +22,7 @@ const ListSteps = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Roboto;
+     font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 11px;
     line-height: 14px;
@@ -34,7 +34,7 @@ const ListSteps = styled.ul`
 
 const ListWrapper = styled.div`
   h2 {
-    font-family: Roboto;
+     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -45,7 +45,7 @@ const ListWrapper = styled.div`
     margin-top: 40px;
   }
   p {
-    font-family: Roboto;
+     font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 14px;
     line-height: 20px;
@@ -56,7 +56,7 @@ const ListWrapper = styled.div`
     }
   }
   .link {
-    font-family: Roboto;
+     font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 14px;
     line-height: 20px;
