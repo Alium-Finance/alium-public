@@ -34,15 +34,15 @@ type DrawListType = typeof draws
 const Draw = styled.div`
   margin-right: 16px;
   margin-bottom: 12px;
-  width: 117px;
+  width: 124px;
   @media (max-width: 576px) {
-    width: 120px;
+    width: 124px;
   }
   .title {
     display: flex;
     align-items: center;
     h3 {
-      font-family: Roboto;
+      font-family: Roboto, sans-serif;
       font-style: normal;
       font-weight: 100;
       font-size: 14px;
@@ -60,7 +60,7 @@ const Draw = styled.div`
     align-items: baseline;
     .price {
       margin-right: 6px;
-      font-family: Roboto;
+      font-family: Roboto, sans-serif;
       font-style: normal;
       font-size: 24px;
       line-height: 30px;
@@ -73,7 +73,7 @@ const Draw = styled.div`
       font-weight: 700;
     }
     .winner {
-      font-family: Roboto;
+      font-family: Roboto, sans-serif;
       font-style: normal;
       font-size: 11px;
       line-height: 14px;
@@ -91,19 +91,10 @@ const DrawListWrapper = styled.div`
   margin-top: 24px;
   display: flex;
   flex-flow: row wrap;
-  max-width: 400px;
+  max-width: 421px;
   position: relative;
   z-index: 9;
 `
-const DrawList = () => {
-  return (
-    <DrawListWrapper>
-      {draws.map((draw, index) => (
-        <DrawItem draw={draw} key={index.toString()} index={index} />
-      ))}
-    </DrawListWrapper>
-  )
-}
 
 const DrawItem = ({ draw, index }: { draw: DrawListType[0]; index: number }) => {
   const isFirst = index === 0
@@ -120,6 +111,15 @@ const DrawItem = ({ draw, index }: { draw: DrawListType[0]; index: number }) => 
         <p className="winner">{draw.winner}</p>
       </div>
     </Draw>
+  )
+}
+const DrawList = () => {
+  return (
+    <DrawListWrapper>
+      {draws.map((draw, index) => (
+        <DrawItem draw={draw} key={index.toString()} index={index} />
+      ))}
+    </DrawListWrapper>
   )
 }
 
