@@ -80,7 +80,7 @@ const NFTWrapper = styled.button`
   }
 
   &.active {
-    border: 1px solid #6c5dd3;
+    border: 3px solid #6c5dd3;
     position: relative;
 
     & .nth-checked-icon {
