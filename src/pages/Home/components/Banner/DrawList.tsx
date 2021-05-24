@@ -95,15 +95,6 @@ const DrawListWrapper = styled.div`
   position: relative;
   z-index: 9;
 `
-const DrawList = () => {
-  return (
-    <DrawListWrapper>
-      {draws.map((draw, index) => (
-        <DrawItem draw={draw} key={index.toString()} index={index} />
-      ))}
-    </DrawListWrapper>
-  )
-}
 
 const DrawItem = ({ draw, index }: { draw: DrawListType[0]; index: number }) => {
   const isFirst = index === 0
@@ -120,6 +111,15 @@ const DrawItem = ({ draw, index }: { draw: DrawListType[0]; index: number }) => 
         <p className="winner">{draw.winner}</p>
       </div>
     </Draw>
+  )
+}
+const DrawList = () => {
+  return (
+    <DrawListWrapper>
+      {draws.map((draw, index) => (
+        <DrawItem draw={draw} key={index.toString()} index={index} />
+      ))}
+    </DrawListWrapper>
   )
 }
 
