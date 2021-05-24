@@ -160,7 +160,7 @@ const Home = () => {
   const [isOpenModal, setOpenModal] = useState(false)
   const [isHideModalOpen, setHideModalOpen] = useState(false)
   const [purchasedCards, setPurchasedCards] = useState<string[]>([])
-  const [activeCard, setActiveCard] = useState<any>('5')
+  const [activeCard, setActiveCard] = useState<any>('9')
   const isActiveCardPurchased = purchasedCards.includes(String(Number(activeCard) + 1))
   const { account, chainId } = useActiveWeb3React()
   const nftContract = useNFTPrivateContract()
