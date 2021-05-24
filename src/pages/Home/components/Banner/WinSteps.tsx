@@ -22,7 +22,7 @@ const ListSteps = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-     font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 11px;
     line-height: 14px;
@@ -34,7 +34,7 @@ const ListSteps = styled.ul`
 
 const ListWrapper = styled.div`
   h2 {
-     font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -45,18 +45,19 @@ const ListWrapper = styled.div`
     margin-top: 40px;
   }
   p {
-     font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 14px;
+    font-weight: normal;
     line-height: 20px;
     color: #8990a5;
     display: inherit;
-    @media (max-width: 1024px) {
+    @media (max-width: 1056px) {
       display: block;
     }
   }
   .link {
-     font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 14px;
     line-height: 20px;
@@ -96,10 +97,10 @@ const WinSteps = () => {
         <div className="step">
           <p className="list">3</p>
           <p>
-            Post the <div className="mark">#Lucky_Aliumers</div> hashtag in the Alium
+            Post the <div className="mark">#Lucky_Aliumers</div> hashtag in the
             <a className="link" href="https://t.me/aliumswap_official" target="_blank" rel="noreferrer">
               <img src={tg} alt="" />
-              telegram
+              Alium telegram
             </a>
           </p>
         </div>

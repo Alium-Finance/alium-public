@@ -23,7 +23,7 @@ const BannerLeft = styled.div`
   padding-bottom: 40px;
   position: relative;
   width: 555px;
-  height: 286px;
+  height: 306px;
   .desc {
     font-family: Roboto, sans-serif;
     font-size: 14px;
@@ -44,6 +44,8 @@ const BannerLeft = styled.div`
   }
   @media (max-width: 576px) {
     height: auto;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 `
 const BannerRight = styled.div`
