@@ -1,3 +1,5 @@
+import separationOfDigits from 'utils/separationOfDigits'
+
 const nft1 = '/video/nft/legendary-illustris.mp4'
 const nft2 = '/video/nft/epic-castus.mp4'
 const nft3 = '/video/nft/rare-altum.mp4'
@@ -20,8 +22,8 @@ const cardList = [
     img: nft1,
     headline: 'Legendary Illustris',
     cards: '175',
-    cost: '5000 BUSD',
-    tokens: '15529 ALM',
+    cost: `${separationOfDigits(5000)} BUSD`,
+    tokens: `${separationOfDigits(15529)} ALM`,
     price: 5000,
   },
   {
@@ -29,8 +31,8 @@ const cardList = [
     img: nft2,
     headline: 'Epic Castus',
     cards: '350',
-    cost: '2500 BUSD',
-    tokens: '7764 ALM',
+    cost: `${separationOfDigits(2500)} BUSD`,
+    tokens: `${separationOfDigits(7764)} ALM`,
     price: 2500,
   },
   {
@@ -38,8 +40,8 @@ const cardList = [
     img: nft3,
     headline: 'Rare Altum',
     cards: '500',
-    cost: '1000 BUSD',
-    tokens: '3106 ALM',
+    cost: `${separationOfDigits(1000)} BUSD`,
+    tokens: `${separationOfDigits(3106)} ALM`,
     price: 1000,
   },
   {
@@ -47,8 +49,8 @@ const cardList = [
     img: nft4,
     headline: 'Uncommon Regno',
     cards: '1 250',
-    cost: '500 BUSD',
-    tokens: '1553 ALM',
+    cost: `${separationOfDigits(500)} BUSD`,
+    tokens: `${separationOfDigits(1553)} ALM`,
     price: 500,
   },
   {
@@ -56,8 +58,8 @@ const cardList = [
     img: nft5,
     headline: 'Common Necesse',
     cards: '2 500',
-    cost: '100 BUSD',
-    tokens: '310 ALM',
+    cost: `${separationOfDigits(100)} BUSD`,
+    tokens: `${separationOfDigits(310)} ALM`,
     price: 100,
   },
 ].map((item) => ({ ...item })) as Array<CardType>
