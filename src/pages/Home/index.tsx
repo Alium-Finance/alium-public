@@ -622,7 +622,7 @@ const Home = () => {
 
       <MessageWrapper>
         Information on Claiming ALM Tokens using your NFT will be posted soon. You will be able to Claim your first ALM
-        Tokens before the 28st of May — 2 p.m. UTC
+        Tokens before the 21st of May — 2 p.m. UTC
       </MessageWrapper>
       <BannerWrapper>
         <Banner />
