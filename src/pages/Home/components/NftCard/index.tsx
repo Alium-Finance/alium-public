@@ -1,5 +1,5 @@
-import { Flex, Text } from '@alium-official/uikit'
-import React, { FC } from 'react'
+import { Flex,Text } from '@alium-official/uikit'
+import React,{ FC } from 'react'
 // import { BigNumber } from '@ethersproject/bignumber'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
@@ -7,7 +7,17 @@ import { CardType } from '../../constants/cards'
 import nftChecked from '../../images/nft-checked.svg'
 
 const NFTWrapper = styled.button`
-  border: 1px solid #eef0f9;
+  border: 3px solid transparent;
+  &:before {
+    content: ' ';
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: 1px solid #eef0f9;
+  }
   box-sizing: border-box;
   border-radius: 6px;
   padding: 16px;
