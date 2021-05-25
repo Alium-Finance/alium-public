@@ -26,6 +26,7 @@ import { useCurrencyBalance } from 'state/wallet/hooks'
 import styled from 'styled-components'
 import Loader from '../../components/Loader'
 import AppBody from '../AppBody'
+import Banner from './components/Banner/Banner'
 import NftCard from './components/NftCard'
 import { StyledFormControl, StyledTextField } from './components/Styled/Inputs'
 import cardList from './constants/cards'
@@ -51,6 +52,14 @@ const ContentHolder = styled.div`
 `
 
 const CardWrapper = styled.div`
+  width: 100%;
+  font-family: Roboto, sans-serif;
+  max-width: 1140px;
+  margin: 20px auto 0;
+  position: relative;
+`
+
+const BannerWrapper = styled.div`
   width: 100%;
   font-family: Roboto, sans-serif;
   max-width: 1140px;
@@ -613,8 +622,11 @@ const Home = () => {
 
       <MessageWrapper>
         Information on Claiming ALM Tokens using your NFT will be posted soon. You will be able to Claim your first ALM
-        Tokens before the 21st of May — 2 p.m. UTC
+        Tokens before the 28st of May — 2 p.m. UTC
       </MessageWrapper>
+      <BannerWrapper>
+        <Banner />
+      </BannerWrapper>
     </ContentHolder>
   )
 }
