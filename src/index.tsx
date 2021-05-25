@@ -1,7 +1,8 @@
 import { ResetCSS } from '@alium-official/uikit'
 import 'inter-ui'
-import React, { StrictMode } from 'react'
+import React,{ StrictMode } from 'react'
 import ReactDOM from 'react-dom'
+import TagManager from 'react-gtm-module'
 import './i18n'
 import App from './pages/App'
 import Providers from './Providers'
@@ -18,6 +19,12 @@ if ('ethereum' in window) {
 window.addEventListener('error', () => {
   localStorage?.removeItem('redux_localstorage_simple_lists')
 })
+
+const tagManagerArgs = {
+  gtmId: 'GTM-MWZ3WL5',
+}
+
+TagManager.initialize(tagManagerArgs)
 
 ReactDOM.render(
   <StrictMode>
