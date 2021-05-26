@@ -9,20 +9,16 @@ import {
   UserRejectedRequestError as UserRejectedRequestErrorWalletConnect,
   WalletConnectConnector,
 } from '@web3-react/walletconnect-connector'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+import { setConnectionError } from 'state/application/actions'
 import { setupNetwork } from '../utils/wallet'
 // import useToast from 'state/hooks'
 import { getConnectorsByName } from '../utils/web3React'
 
 const useAuth = () => {
   const { activate, deactivate } = useWeb3React()
-  const [errorConnection, seterrorConnection] =
-    useState<
-      | (Error & {
-          code?: string | undefined
-        })
-      | null
-    >(null)
+  const dispatch = useDispatch()
   // const { toastError } = useToast()
 
   const login = useCallback(
@@ -53,7 +49,7 @@ const useAuth = () => {
               }
               // toastError('Authorization Error', 'Please authorize to access your account')
             } else {
-              seterrorConnection(error)
+              dispatch(setConnectionError({ error }))
               // toastError(error.name, error.message)
             }
           }
@@ -62,10 +58,10 @@ const useAuth = () => {
         // toastError("Can't find connector", 'The connector config is wrong')
       }
     },
-    [activate]
+    [activate, dispatch]
   )
 
-  return { login, logout: deactivate, errorConnection }
+  return { login, logout: deactivate }
 }
 
 export default useAuth
