@@ -32,8 +32,8 @@
     "@walletconnect/web3-provider": "1.1.1-alpha.0"
   },
   "dependencies": {
-    "@alium-official/sdk": "^1.1.11",
-    "@alium-official/uikit": "^0.11.59",
+    "@alium-official/sdk": "^1.1.14",
+    "@alium-official/uikit": "^0.11.69",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
