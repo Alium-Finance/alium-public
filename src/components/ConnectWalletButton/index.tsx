@@ -1,5 +1,5 @@
 // import { Button, ButtonProps, ConnectorId, useWalletModal } from '@alium-official/uikit'
-import { Button,ButtonProps,useWalletModal } from '@alium-official/uikit'
+import { Button, ButtonProps, useWalletModal } from '@alium-official/uikit'
 import useAuth from 'hooks/useAuth'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
