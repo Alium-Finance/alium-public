@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 const UnlockButton: React.FC<ButtonProps> = (props) => {
   const { t } = useTranslation()
   const { login, logout } = useAuth()
+  // ts-ignore
   const { onPresentConnectModal } = useWalletModal(login, logout)
 
   return (

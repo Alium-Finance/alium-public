@@ -30,6 +30,7 @@ import { TranslationsContext } from '../hooks/TranslationsContext'
 import useEagerConnect from '../hooks/useEagerConnect'
 import Home from './Home'
 import Header from './Home/components/Header'
+import HomeSoldOut from './HomeSoldOut'
 // import Menu from '../components/Menu'
 // import Migrate from './Migrate'
 
@@ -134,6 +135,7 @@ export default function App() {
                 <Web3ReactManager>
                   <Switch>
                     <Route exact strict path="/" component={Home} />
+                    <Route exact strict path="/soldout" component={HomeSoldOut} />
                     {/* <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                       <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
