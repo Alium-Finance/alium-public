@@ -134,6 +134,7 @@ export default function App() {
                 <Web3ReactManager>
                   <Switch>
                     <Route exact strict path="/" component={HomeSoldOut} />
+                    <Route exact strict path="/soldout" component={HomeSoldOut} />
                     {/*
                     <Route exact strict path="/" component={Home} />
                     <Route exact strict path="/swap" component={Swap} />
@@ -153,7 +154,7 @@ export default function App() {
                     <Route exact strict path="/migrate/v1/:address" component={MigrateV1Exchange} />
                     <Route component={RedirectPathToSwapOnly} />
                     */}
-                    <Route render={() => <Redirect to={{ pathname: '/' }} />} />
+                    <Route render={() => <Redirect to={{ pathname: '/soldout' }} />} />
                   </Switch>
                 </Web3ReactManager>
                 <Marginer />
