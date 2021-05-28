@@ -1,4 +1,4 @@
-import { externalLinks, MenuEntry } from '@alium-official/uikit'
+import { externalLinks, getMainDomain, MenuEntry } from '@alium-official/uikit'
 
 const config: MenuEntry[] = [
   {
@@ -13,22 +13,22 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://exchange.dev.alium.finance/swap',
+        href: `https://exchange.${getMainDomain()}/swap`,
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.dev.alium.finance/pool',
+        href: `https://exchange.${getMainDomain()}/pool`,
       },
       {
         label: 'Migrate',
-        href: 'https://exchange.dev.alium.finance/migrate',
+        href: `https://exchange.${getMainDomain()}/migrate`,
       },
     ],
   },
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://dev.alium.finance/farms',
+    href: `https://${getMainDomain()}/farms`,
   },
   // {
   //   label: 'Pools',
@@ -70,19 +70,19 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Overview',
-        href: 'http://info.dev.alium.finance/',
+        href: `https://info.${getMainDomain()}`,
       },
       {
         label: 'Tokens',
-        href: 'http://info.dev.alium.finance/tokens',
+        href: `https://info.${getMainDomain()}/tokens`,
       },
       {
         label: 'Pairs',
-        href: 'http://info.dev.alium.finance/pairs',
+        href: `https://info.${getMainDomain()}/pairs`,
       },
       {
         label: 'Accounts',
-        href: 'http://info.dev.alium.finance/accounts',
+        href: `https://info.${getMainDomain()}/accounts`,
       },
     ],
   },
@@ -97,7 +97,7 @@ const config: MenuEntry[] = [
     items: [
       // {
       //   label: 'Voting',
-      //   href: 'https://voting.alium.finance',
+      //   href: `https://voting.${getMainDomain()}`,
       // },
       {
         label: 'Github',
@@ -105,7 +105,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Docs',
-        href: 'https://docs.alium.finance',
+        href: `https://docs.${getMainDomain()}`,
       },
       {
         label: 'Blog',

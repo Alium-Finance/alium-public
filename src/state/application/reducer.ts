@@ -3,6 +3,7 @@ import {
   addPopup,
   PopupContent,
   removePopup,
+  setConnectionError,
   toggleSettingsMenu,
   toggleWalletModal,
   updateBlockNumber,
@@ -15,6 +16,7 @@ export interface ApplicationState {
   popupList: PopupList
   walletModalOpen: boolean
   settingsMenuOpen: boolean
+  connectionError: any
 }
 
 const initialState: ApplicationState = {
@@ -22,6 +24,7 @@ const initialState: ApplicationState = {
   popupList: [],
   walletModalOpen: false,
   settingsMenuOpen: false,
+  connectionError: null,
 }
 
 export default createReducer(initialState, (builder) =>
@@ -56,5 +59,8 @@ export default createReducer(initialState, (builder) =>
           p.show = false
         }
       })
+    })
+    .addCase(setConnectionError, (state, { payload: { error } }) => {
+      state.connectionError = error
     })
 )

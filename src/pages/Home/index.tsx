@@ -5,6 +5,7 @@ import { FormControl, FormHelperText, InputLabel, MenuItem, OutlinedInput, Selec
 import axios from 'axios'
 import { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
+import ConnectionPending from 'components/ConnectionPending/ConnectionPending'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Modal from 'components/Modal'
 import { RowBetween } from 'components/Row'
@@ -410,6 +411,7 @@ const Home = () => {
   return (
     <ContentHolder>
       <img className="content-background" src={bgIMG} alt="background" />
+      <ConnectionPending/>
       <CardWrapper>
         <Modal isOpen={isOpenModal} onDismiss={handleClose}>
           <Flex flexDirection="column">

@@ -1,5 +1,5 @@
-import { Flex,Text } from '@alium-official/uikit'
-import React,{ FC } from 'react'
+import { Flex, Text } from '@alium-official/uikit'
+import React, { FC } from 'react'
 // import { BigNumber } from '@ethersproject/bignumber'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
@@ -168,16 +168,23 @@ type props = {
   activeCard: string
   handleClickCard: (activeCard: string) => void
   maxCardsAmounts: number[]
+  soldOut?: boolean
 }
 
-const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard }) => {
+const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard, soldOut }) => {
   const { t } = useTranslation()
   const isActive = `${card.id}` === activeCard
   const ID = `${card.id}`
   const isMp4 = card.img.split('.')[1] === 'mp4'
 
   return (
-    <NFTWrapper key={ID} type="button" onClick={() => handleClickCard(ID)} className={isActive ? 'active' : ''}>
+    <NFTWrapper
+      key={ID}
+      type="button"
+      onClick={() => handleClickCard(ID)}
+      className={isActive ? 'active' : ''}
+      style={{ cursor: soldOut ? 'initial' : 'pointer' }}
+    >
       {isActive && <img className="nth-checked-icon" src={nftChecked} alt="nft-checked" />}
 
       {isMp4 ? (
@@ -186,10 +193,14 @@ const NftCard: FC<props> = ({ card, activeCard, maxCardsAmounts, handleClickCard
           <video autoPlay loop muted>
             <source src={card.img} type="video/mp4" />
           </video>
+
+          {soldOut ? <img src="/images/sold-out.png" alt="" style={{ position: 'absolute' }} /> : null}
         </div>
       ) : (
         <div className="nft-preview">
           <img src={card.img} alt="nft-preview" />
+
+          {soldOut ? <img src="/images/sold-out.png" alt="" style={{ position: 'absolute' }} /> : null}
         </div>
       )}
       <StyledHeading className="desktop">{card.headline}</StyledHeading>
