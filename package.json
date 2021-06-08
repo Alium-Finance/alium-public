@@ -14,7 +14,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
-    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'"
+    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
+    "update:uikit": "npx npm-check-updates @alium-official/* --target greatest -u"
   },
   "browserslist": {
     "production": [
@@ -33,7 +34,7 @@
   },
   "dependencies": {
     "@alium-official/sdk": "^1.1.14",
-    "@alium-official/uikit": "^0.11.79",
+    "@alium-official/uikit": "^0.11.89",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
