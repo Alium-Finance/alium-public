@@ -14,10 +14,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@alium-official/uikit@^0.11.89":
-  version "0.11.89"
-  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.89.tgz#29bbcebb7f288c740797b4c03843108dbf09cecb"
-  integrity sha512-tPM3aevI49P54eabyhurJ1B9VjCKfskOekRP57adOMyLkZQq8/jrIzUwRqbOTGFx0I4r3dXedfY1Gr/i2u58PA==
+"@alium-official/uikit@^0.11.113":
+  version "0.11.113"
+  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.113.tgz#f1643280ced0bba2acdff2e5bd9ea069e2c7ee40"
+  integrity sha512-ppw1luoWmUeHVaw8JA9FwwN9ociWv1laO7ftXMlYObn7to1vKtfRU0+Y5Y9JUUc+DRb+UeRICR43oQkfqbx9bQ==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
